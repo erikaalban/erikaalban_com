@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && 
-            !navLinks.contains(e.target) && 
+        if (!hamburger.contains(e.target) &&
+            !navLinks.contains(e.target) &&
             navLinks.classList.contains('active')) {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
@@ -47,4 +47,4 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('section').forEach(section => {
     section.classList.add('section');
     observer.observe(section);
-}); 
+});

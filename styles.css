@@ -193,7 +193,7 @@ section::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         radial-gradient(circle at 20% 20%, rgba(196, 164, 132, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(196, 164, 132, 0.05) 0%, transparent 50%);
 }
@@ -666,12 +666,12 @@ section h2::after {
     .contact-info {
         grid-template-columns: 1fr;
     }
-    
+
     .social-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .social-button {
         width: 100%;
         justify-content: center;
@@ -1084,7 +1084,7 @@ nav {
     .site-title {
         z-index: 1001; /* Keep the title above the mobile menu */
     }
-    
+
     nav {
         padding: 1rem;
     }
@@ -1233,4 +1233,4 @@ nav {
     .hobbies-container {
         grid-template-columns: 1fr;
     }
-} 
+}
