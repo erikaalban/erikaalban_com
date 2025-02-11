@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-fix:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install --save-dev stylelint stylelint-config-standard
+        npm install --save-dev eslint eslint-config-standard
+        npm install --save-dev htmlhint prettier
+        
+    - name: Create config files
+      run: |
+        echo '{"extends": "stylelint-config-standard", "fix": true}' > .stylelintrc.json
+        echo '{"extends": "eslint:recommended", "rules": {"no-unused-vars": "warn"}}' > .eslintrc.json
+        echo '{"tagname-lowercase": true, "attr-lowercase": true, "attr-value-double-quotes": true, "doctype-first": true}' > .htmlhintrc
+        
+    - name: Lint and fix
+      run: |
+        npx prettier --write "*.{html,css,js}"
+        npx stylelint "**/*.css" --fix
+        npx eslint "**/*.js" --fix
+        
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-fix linting issues" && git push)
+
+  deploy:
+    needs: lint-and-fix
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: . 

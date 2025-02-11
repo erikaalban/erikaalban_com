@@ -1,1 +1,8 @@
 .gitconfig
+node_modules/
+.stylelintrc.json
+.eslintrc.json
+.htmlhintrc
+.prettierrc
+package.json
+package-lock.json
