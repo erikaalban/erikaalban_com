@@ -41,10 +41,6 @@ The site is fully responsive and has been tested on:
 - Background: #FAF6F1 (Light Cream)
 - White: #FFFFFF
 
-## 📄 License
-
-© 2024 Erika Alban. All rights reserved.
-
 ## 🔗 Live Site
 
 Visit the live site at: [https://erikaalban.com](https://erikaalban.com)
@@ -52,6 +48,7 @@ Visit the live site at: [https://erikaalban.com](https://erikaalban.com)
 ## 📬 Contact
 
 Feel free to reach out:
+
 - Email: erikalban12@gmail.com
 - GitHub: [@erikaalban](https://github.com/erikaalban)
 - LinkedIn: [erikaalban](https://linkedin.com/in/erikaalban) 
