@@ -5,6 +5,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Commit message for auto-fixes'
+        required: false
+        default: '🤖 Auto-fix linting issues'
 
 jobs:
   lint-and-fix:
@@ -44,7 +50,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add -A
-        git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-fix linting issues" && git push)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "${{ github.event.inputs.message || '🤖 Auto-fix linting issues' }}" && git push)
 
   deploy:
     needs: lint-and-fix
