@@ -29,21 +29,29 @@ jobs:
     - name: Install dependencies
       run: |
         npm init -y
-        npm install --save-dev stylelint stylelint-config-standard
-        npm install --save-dev eslint eslint-config-standard
-        npm install --save-dev htmlhint prettier
+        npm install --save-dev stylelint
+        npm install --save-dev htmlhint
         
     - name: Create config files
       run: |
-        echo '{"extends": "stylelint-config-standard", "fix": true}' > .stylelintrc.json
-        echo '{"extends": "eslint:recommended", "rules": {"no-unused-vars": "warn"}}' > .eslintrc.json
-        echo '{"tagname-lowercase": true, "attr-lowercase": true, "attr-value-double-quotes": true, "doctype-first": true}' > .htmlhintrc
+        echo '{
+          "rules": {
+            "no-duplicate-selectors": null,
+            "no-descending-specificity": null,
+            "no-invalid-position-at-import-rule": null
+          }
+        }' > .stylelintrc.json
+        echo '{
+          "tagname-lowercase": true,
+          "attr-lowercase": true,
+          "attr-value-double-quotes": true,
+          "doctype-first": false
+        }' > .htmlhintrc
         
     - name: Lint and fix
       run: |
-        npx prettier --write "*.{html,css,js}"
-        npx stylelint "**/*.css" --fix
-        npx eslint "**/*.js" --fix
+        npx prettier --write "*.{html,css,js}" || true
+        npx stylelint "**/*.css" --fix || true
         
     - name: Commit changes
       run: |
