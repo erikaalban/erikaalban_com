@@ -47,7 +47,7 @@ The site is fully responsive and has been tested on:
 
 ## 🔗 Live Site
 
-Visit the live site at: [erikaalban.github.io](https://erikaalban.github.io)
+Visit the live site at: [https://erikaalban.com](https://erikaalban.com)
 
 ## 📬 Contact
 
