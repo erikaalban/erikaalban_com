@@ -181,9 +181,8 @@ nav ul li a.active::after {
 
 /* Sections */
 section {
-    padding: 4rem 2rem;
     position: relative;
-    overflow: hidden;
+    padding: 4rem 2rem 6rem 2rem;
 }
 
 section::before {
@@ -1233,4 +1232,48 @@ nav {
     .hobbies-container {
         grid-template-columns: 1fr;
     }
+}
+
+/* Add at the end of your existing CSS */
+.scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #C4A484;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    animation: bounce 2s infinite;
+    opacity: 0.8;
+    z-index: 10;
+    pointer-events: auto; /* Ensure the arrow remains clickable */
+}
+
+.scroll-down:hover {
+    color: #2C3E50;
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Update section positioning */
+section {
+    position: relative;
+    padding: 4rem 2rem 6rem 2rem;
+}
+
+/* Keep min-height only for the hero section */
+section.hero {
+    min-height: 100vh;
 }
