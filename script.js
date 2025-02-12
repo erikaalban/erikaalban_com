@@ -48,26 +48,3 @@ document.querySelectorAll('section').forEach(section => {
     section.classList.add('section');
     observer.observe(section);
 });
-
-document.querySelectorAll('.scroll-down').forEach(arrow => {
-    arrow.addEventListener('click', function(e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        const targetSection = document.querySelector(href);
-        
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-window.addEventListener('scroll', () => {
-    const arrows = document.querySelectorAll('.scroll-down');
-    const bottomArrow = arrows[arrows.length - 1];
-    
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
-        bottomArrow.style.opacity = '0';
-    } else {
-        bottomArrow.style.opacity = '0.8';
-    }
-});

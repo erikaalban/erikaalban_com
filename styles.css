@@ -185,7 +185,11 @@ nav ul li a.active::after {
 /* Sections */
 section {
     position: relative;
-    padding: 4rem 2rem 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    align-items: center;
+    min-height: fit-content;
 }
 
 section::before {
@@ -219,6 +223,25 @@ section h2 {
 
 section h2::after {
     display: none;
+}
+
+/* Hero section specific */
+section.hero {
+    min-height: 100vh;
+    justify-content: center;
+    padding-bottom: 4rem;
+    position: relative;
+}
+
+/* Content wrappers */
+.hero-content,
+.about-content,
+.skills-content,
+.certifications-content,
+.projects-grid,
+.contact-content {
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
 /* About section */
@@ -567,49 +590,52 @@ section h2::after {
     line-height: 1.8;
 }
 
-.contact-info {
+.contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
 
 .contact-item {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(196, 164, 132, 0.2);
-    transition: all 0.3s ease;
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.contact-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    border-color: #C4A484;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .contact-item i {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #C4A484;
+}
+
+.contact-details {
+    flex: 1;
 }
 
 .contact-details h3 {
-    font-size: 0.9rem;
-    color: #C4A484;
     margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
+    font-size: 1rem;
+    color: #2C3E50;
 }
 
 .contact-details p {
-    color: #2C3E50;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    color: #666;
+    word-break: break-word;
+}
+
+.contact-details a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #C4A484;
 }
 
 /* Social buttons styling */
@@ -665,8 +691,12 @@ section h2::after {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-    .contact-info {
+    .contact-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .contact-item {
+        padding: 1rem;
     }
 
     .social-buttons {
@@ -1234,20 +1264,35 @@ nav {
     }
 }
 
-/* Add at the end of your existing CSS */
+/* Scroll down arrow styles */
 .scroll-down {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
     color: #C4A484;
     text-decoration: none;
     font-size: 1.5rem;
-    transition: all 0.3s ease;
-    animation: bounce 2s infinite;
     opacity: 0.8;
-    z-index: 10;
-    pointer-events: auto; /* Ensure the arrow remains clickable */
+    padding: 0.5rem;
+    cursor: pointer;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.scroll-down {
+    animation: bounce 2s infinite;
 }
 
 .scroll-down:hover {
@@ -1255,25 +1300,23 @@ nav {
     opacity: 1;
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
+/* Hide scroll arrow on last section */
+#contact .scroll-down {
+    display: none;
 }
 
-/* Update section positioning */
-section {
-    position: relative;
-    padding: 4rem 2rem 6rem 2rem;
-}
-
-/* Keep min-height only for the hero section */
-section.hero {
-    min-height: 100vh;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 1.5rem;
+    }
+    
+    .hero-content,
+    .about-content,
+    .skills-content,
+    .certifications-content,
+    .projects-grid,
+    .contact-content {
+        margin-bottom: 1.5rem;
+    }
 }
