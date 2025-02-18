@@ -6,3 +6,6 @@ node_modules/
 .prettierrc
 package.json
 package-lock.json
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
