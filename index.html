@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erika Alban | Software Engineer</title>
+    <title>Erika Alban | DevOps Engineer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js" defer></script>
@@ -37,14 +37,14 @@
                     <img src="profile.jpg" alt="Erika Alban" />
                 </div>
                 <h1>Erika Alban</h1>
-                <h2>Software Engineer</h2>
+                <h2>DevOps Engineer</h2>
             </div>
         </section>
 
         <section id="about">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>Hi! I'm a software engineer living in New York City, and I love building things that live on the web. After graduating with a finance degree from the University of Florida in 2021, I spent time in Germany before exploring roles in sales and real estate. My journey led me to a Technical Account Manager position at Ethrys, a technical consulting firm. Being surrounded by dedicated engineers ignited my interest in coding. Inspired by the talented engineers I worked with, I decided to pursue this passion full-time through SheCodes Bootcamp, where I'm diving deep into JavaScript, Python, and React while working on projects that combine clean code with intuitive design. When I'm not coding, you can find me competing in billiards tournaments, experimenting with new recipes in the kitchen, staying active at the gym, or exploring different corners of the world.</p>
+                <p>Hi! I'm an aspiring DevOps engineer based in New York City. After graduating with a finance degree from the University of Florida in 2021, I discovered my passion for cloud infrastructure and automation while working as a Technical Account Manager at Ethrys, a DevOps consulting firm. I've implemented infrastructure as code using Terraform to deploy my portfolio website on AWS, and I'm currently expanding my knowledge of cloud services, containerization, and CI/CD practices. While completing the SheCodes Bootcamp to strengthen my programming fundamentals, I'm particularly drawn to the challenges of building and maintaining scalable cloud infrastructure. When I'm not coding or learning about cloud architecture, you can find me competing in billiards tournaments, experimenting with new recipes in the kitchen, staying active at the gym, or exploring different corners of the world.</p>
 
                 <div class="hobbies-container">
                     <div class="hobby-card">
@@ -187,6 +187,20 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Infrastructure as Code Portfolio Website <i class="fab fa-aws tech-icon" title="AWS"></i> <i class="fas fa-cloud tech-icon" title="Terraform"></i></h3>
+                    <p>Implemented infrastructure as code to deploy and manage this portfolio website using AWS and Terraform.</p>
+                    <ul>
+                        <li>Deployed static website using AWS S3 and configured for web hosting</li>
+                        <li>Implemented infrastructure as code using Terraform</li>
+                        <li>Configured S3 bucket policies for secure hosting and set up DNS through Cloudflare</li>
+                        <li>Created shell script to automate file uploads to S3 bucket</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/erikaalban/erikaalban_com/tree/main/terraform" class="project-link" target="_blank">View Source</a>
+                    </div>
+                </div>
+
                 <div class="project-card current-site">
                     <div class="current-badge">You are here</div>
                     <h3>Portfolio Website <i class="fab fa-html5 tech-icon" title="HTML5"></i> <i class="fab fa-css3-alt tech-icon" title="CSS3"></i> <i class="fab fa-js tech-icon" title="JavaScript"></i></h3>
@@ -254,6 +268,34 @@
                         <li>Implementing component-based architecture</li>
                         <li>Managing state with React hooks</li>
                         <li>Enhancing UI with React features</li>
+                    </ul>
+                    <div class="project-links">
+                        <p class="coming-soon">Coming Soon</p>
+                    </div>
+                </div>
+
+                <div class="project-card upcoming">
+                    <h3>EC2 Portfolio Deployment <i class="fab fa-aws tech-icon" title="AWS"></i> <i class="fab fa-linux tech-icon" title="Linux"></i></h3>
+                    <p>Planning to deploy the portfolio as a web server on AWS EC2, expanding infrastructure knowledge beyond static hosting.</p>
+                    <ul>
+                        <li>Deploy NGINX web server on EC2 instance</li>
+                        <li>Configure security groups and networking</li>
+                        <li>Implement automated deployment pipeline</li>
+                        <li>Set up monitoring and logging</li>
+                    </ul>
+                    <div class="project-links">
+                        <p class="coming-soon">Coming Soon</p>
+                    </div>
+                </div>
+
+                <div class="project-card upcoming">
+                    <h3>Containerized Portfolio on EKS <i class="fab fa-aws tech-icon" title="AWS"></i> <i class="fab fa-docker tech-icon" title="Docker"></i></h3>
+                    <p>Future project to containerize the portfolio website and deploy it to Amazon Elastic Kubernetes Service (EKS).</p>
+                    <ul>
+                        <li>Containerize website using Docker</li>
+                        <li>Deploy to Amazon EKS cluster</li>
+                        <li>Implement Kubernetes manifests</li>
+                        <li>Set up container orchestration and scaling</li>
                     </ul>
                     <div class="project-links">
                         <p class="coming-soon">Coming Soon</p>
