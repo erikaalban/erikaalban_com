@@ -813,7 +813,20 @@ footer .social-links {
 
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
         padding: 1rem;
+        width: 100%;
+    }
+
+    .project-card {
+        width: 100%;
+        margin: 0;
+    }
+
+    section#projects {
+        padding: 6rem 1rem 2rem 1rem;
+        width: 100%;
+        overflow: hidden;  /* Prevent horizontal scroll */
     }
 
     section h2 {
