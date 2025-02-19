@@ -459,6 +459,7 @@ section.hero {
 #projects {
     background-color: #FAF6F1;
     padding-top: 6rem;
+    opacity: 1 !important; /* Force opacity */
 }
 
 .projects-grid {
@@ -815,18 +816,26 @@ footer .social-links {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 1rem;
-        width: 100%;
+        width: calc(100% - 2rem); /* Account for padding */
     }
 
     .project-card {
         width: 100%;
         margin: 0;
+        overflow: hidden; /* Contain any overflowing content */
     }
 
     section#projects {
-        padding: 6rem 1rem 2rem 1rem;
+        padding: 6rem 1rem 2rem;
         width: 100%;
-        overflow: hidden;  /* Prevent horizontal scroll */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    /* Fix for iOS Safari rendering */
+    .project-card {
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
     }
 
     section h2 {
@@ -1331,5 +1340,59 @@ nav {
     .projects-grid,
     .contact-content {
         margin-bottom: 1.5rem;
+    }
+}
+
+/* Fix for project cards hover on mobile */
+@media (hover: hover) {
+    .project-card:hover {
+        transform: translateY(-3px);
+    }
+}
+
+@media (hover: none) {
+    .project-card:hover {
+        transform: none;
+    }
+}
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+    /* Reset any transform styles that might cause issues */
+    .section {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+
+    #projects {
+        min-height: auto;
+        padding: 4rem 1rem 2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .project-card {
+        transform: none !important;
+        opacity: 1 !important;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Ensure content is visible on iOS */
+@supports (-webkit-overflow-scrolling: touch) {
+    .section {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    #projects {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

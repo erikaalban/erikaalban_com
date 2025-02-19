@@ -33,12 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const observerOptions = {
-    threshold: 0.2
+    threshold: 0.1,
+    rootMargin: '50px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (window.innerWidth <= 768 || entry.isIntersecting) {
             entry.target.classList.add('visible');
         }
     });
@@ -46,5 +47,8 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('section').forEach(section => {
     section.classList.add('section');
+    if (window.innerWidth <= 768) {
+        section.classList.add('visible');
+    }
     observer.observe(section);
 });
