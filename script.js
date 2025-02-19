@@ -31,24 +31,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '50px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (window.innerWidth <= 768 || entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('section').forEach(section => {
-    section.classList.add('section');
-    if (window.innerWidth <= 768) {
-        section.classList.add('visible');
-    }
-    observer.observe(section);
-});
