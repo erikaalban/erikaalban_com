@@ -1,5 +1,14 @@
 # Erika Alban's Portfolio
 
+## 🔄 UPDATE
+
+Recently enhanced the portfolio infrastructure:
+- Implemented Infrastructure as Code using Terraform to deploy the static website on AWS S3
+- Configured S3 bucket policies for secure static website hosting
+- Set up DNS routing through Cloudflare dashboard
+- Created shell script to automate file uploads to S3 bucket
+- Infrastructure code available in the [/terraform](https://github.com/erikaalban/erikaalban_com/tree/main/terraform) directory
+
 A modern, responsive portfolio website showcasing my journey as a software engineer. Built with clean code and intuitive design principles.
 
 ## 🌟 Features
@@ -14,6 +23,10 @@ A modern, responsive portfolio website showcasing my journey as a software engin
 
 ## 🛠 Technologies Used
 
+- AWS (S3)
+- Cloudflare (DNS)
+- Terraform
+- Shell Scripting
 - HTML5
 - CSS3
 - Vanilla JavaScript
@@ -22,6 +35,7 @@ A modern, responsive portfolio website showcasing my journey as a software engin
 
 ## 🚀 Projects Showcased
 
+- Infrastructure as Code Portfolio Website
 - Weather App (JavaScript)
 - World Clock (JavaScript)
 - Weather App (Python)
