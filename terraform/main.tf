@@ -30,7 +30,7 @@ resource "aws_s3_bucket_public_access_block" "erikaalban_com" {
 resource "aws_s3_bucket_versioning" "erikaalban_com" {
   bucket = aws_s3_bucket.erikaalban_com.id
   versioning_configuration {
-    status = "Disabled" # Could be "Enabled" if you want versioning
+    status = "Disabled"
   }
 }
 
@@ -39,7 +39,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "erikaalban_com" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256" # This is S3-managed keys (SSE-S3)
+      sse_algorithm = "AES256"
     }
   }
 }
@@ -72,7 +72,6 @@ resource "aws_s3_bucket_policy" "erikaalban_com" {
     ]
   })
 
-  # Make sure the bucket ownership and public access settings are set before the policy
   depends_on = [
     aws_s3_bucket_ownership_controls.erikaalban_com,
     aws_s3_bucket_public_access_block.erikaalban_com
