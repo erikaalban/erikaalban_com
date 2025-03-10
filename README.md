@@ -7,7 +7,7 @@ Recently enhanced the portfolio infrastructure:
 - Configured S3 bucket policies for secure static website hosting
 - Set up DNS routing through Cloudflare dashboard
 - Created shell script to automate file uploads to S3 bucket
-- Infrastructure code available in the [/terraform](https://github.com/erikaalban/erikaalban_com/tree/main/terraform) directory
+- Infrastructure code available in the [infra](https://github.com/erikaalban/erikaalban_com/tree/main/infra) directory
 
 A modern, responsive portfolio website showcasing my journey as a software engineer. Built with clean code and intuitive design principles.
 
