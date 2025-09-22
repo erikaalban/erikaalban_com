@@ -10,3 +10,4 @@ package-lock.json
 terraform.tfstate
 terraform.tfstate.backup
 .DS_Store
+.DS_Store
